@@ -37,9 +37,9 @@ function AttendancePage() {
     queryFn: async () => {
       const { data } = await supabase
         .from("students").select("*")
-        .eq("course", selectedClass.course)
-        .eq("year", selectedClass.year)
-        .eq("section", selectedClass.section)
+        .eq("course", selectedClass!.course)
+        .eq("year", selectedClass!.year)
+        .eq("section", selectedClass!.section)
         .order("full_name");
       return data ?? [];
     },
